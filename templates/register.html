@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Регистрация{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Регистрация</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="id_username" class="form-label">Имя пользователя</label>
+            <!-- Добавляем класс вручную -->
+            <input type="text" name="username" id="id_username" class="form-control" value="{{ form.username.value }}">
+        </div>
+        
+        <div class="mb-3">
+            <label for="id_password1" class="form-label">Пароль</label>
+            <!-- Добавляем класс вручную -->
+            <input type="password" name="password1" id="id_password1" class="form-control" value="{{ form.password1.value }}">
+            <div id="passwordHelp" class="form-text text-muted" style="display: none;">
+                Пароль должен быть не менее 8 символов, содержать буквы и цифры.
+            </div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="id_password2" class="form-label">Подтверждение пароля</label>
+            <!-- Добавляем класс вручную -->
+            <input type="password" name="password2" id="id_password2" class="form-control" value="{{ form.password2.value }}">
+        </div>
+        
+        <button type="submit" class="btn btn-success w-100">Зарегистрироваться</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById("id_password1").addEventListener("focus", function() {
+        document.getElementById("passwordHelp").style.display = "block";
+    });
+    document.getElementById("id_password1").addEventListener("blur", function() {
+        document.getElementById("passwordHelp").style.display = "none";
+    });
+</script>
+{% endblock %}
+
+
+
