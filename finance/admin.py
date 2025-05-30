@@ -1,11 +1,9 @@
 from django.contrib import admin
-from .models import FinancialRecord
+from .models import Project, WorkStage, Material, WorkType, Cost, Purchase
 
-@admin.register(FinancialRecord)
-class FinancialRecordAdmin(admin.ModelAdmin):
-    list_display = ('company_name', 'date', 'revenue', 'expenses', 'profit')
-    list_filter = ('company_name', 'date')
-    search_fields = ('company_name',)
-
-admin.site.site_header = "Управление Финансами"
-admin.site.index_title = "Администрирование данных"
+admin.site.register(Project)
+admin.site.register(WorkStage)
+admin.site.register(Material)
+admin.site.register(WorkType)
+admin.site.register(Cost)
+admin.site.register(Purchase)

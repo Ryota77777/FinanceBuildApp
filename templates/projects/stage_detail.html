@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Этап: {{ stage.name }}{% endblock %}
+
+{% block content %}
+<h2>Этап: {{ stage.name }}</h2>
+
+<p><strong>Описание:</strong> {{ stage.description }}</p>
+
+<h3>Типы работ</h3>
+{% if work_types %}
+    <ul class="list-group">
+        {% for wt in work_types %}
+            <li class="list-group-item">
+                <a href="{% url 'worktype_detail' wt.pk %}">{{ wt.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Типы работ не добавлены.</p>
+{% endif %}
+
+<a href="{% url 'project_detail' stage.project.pk %}" class="btn btn-secondary mt-3">Вернуться к проекту</a>
+{% endblock %}

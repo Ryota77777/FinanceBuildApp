@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Планирование{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Раздел планирования</h1>
+    <div class="row">
+        <div class="col-md-6 col-lg-4 mb-3">
+            <a href="{% url 'project_create' %}" class="btn btn-outline-primary w-100">➕ Добавить проект</a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-3">
+            <a href="{% url 'workstage_create' %}" class="btn btn-outline-secondary w-100">🛠️ Добавить этап работ</a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-3">
+            <a href="{% url 'material_create' %}" class="btn btn-outline-dark w-100">📦 Добавить материал</a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-3">
+            <a href="{% url 'worktype_create' %}" class="btn btn-outline-success w-100">🏷️ Добавить вид работ</a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-3">
+            <a href="{% url 'cost_create' %}" class="btn btn-outline-warning w-100">💸 Добавить затраты</a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-3">
+            <a href="{% url 'purchase_create' %}" class="btn btn-outline-info w-100">📦 Добавить закупку</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

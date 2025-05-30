@@ -19,7 +19,6 @@
                 <label for="id_username" class="form-label">Имя пользователя</label>
             </div>
             <div class="col-9">
-                <!-- Добавляем класс прямо сюда -->
                 <input type="text" name="username" id="id_username" class="form-control" value="{{ form.cleaned_data.username|default_if_none:'' }}">
             </div>
         </div>
@@ -28,7 +27,6 @@
                 <label for="id_password" class="form-label">Пароль</label>
             </div>
             <div class="col-9">
-                <!-- Добавляем класс прямо сюда -->
                 <input type="password" name="password" id="id_password" class="form-control">
             </div>
         </div>

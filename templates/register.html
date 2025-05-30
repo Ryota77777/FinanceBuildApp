@@ -10,13 +10,16 @@
         
         <div class="mb-3">
             <label for="id_username" class="form-label">Имя пользователя</label>
-            <!-- Добавляем класс вручную -->
             <input type="text" name="username" id="id_username" class="form-control" value="{{ form.username.value }}">
         </div>
         
         <div class="mb-3">
+            <label for="id_email" class="form-label">Email</label>
+            <input type="email" name="email" id="id_email" class="form-control" value="{{ form.email.value }}">
+        </div>
+        
+        <div class="mb-3">
             <label for="id_password1" class="form-label">Пароль</label>
-            <!-- Добавляем класс вручную -->
             <input type="password" name="password1" id="id_password1" class="form-control" value="{{ form.password1.value }}">
             <div id="passwordHelp" class="form-text text-muted" style="display: none;">
                 Пароль должен быть не менее 8 символов, содержать буквы и цифры.
@@ -25,7 +28,6 @@
         
         <div class="mb-3">
             <label for="id_password2" class="form-label">Подтверждение пароля</label>
-            <!-- Добавляем класс вручную -->
             <input type="password" name="password2" id="id_password2" class="form-control" value="{{ form.password2.value }}">
         </div>
         
@@ -42,6 +44,7 @@
     });
 </script>
 {% endblock %}
+
 
 
 

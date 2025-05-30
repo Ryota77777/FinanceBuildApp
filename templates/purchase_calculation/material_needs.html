@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Потребности по проекту {{ project.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Потребности в материалах: {{ project.name }}</h2>
+    <table class="table table-bordered mt-3">
+        <thead class="table-light">
+            <tr>
+                <th>Материал</th>
+                <th>Необходимо</th>
+                <th>Уже закуплено</th>
+                <th>Осталось закупить</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for material, data in material_data.items %}
+            <tr>
+                <td>{{ material.name }}</td>
+                <td>{{ data.needed }}</td>
+                <td>{{ data.purchased }}</td>
+                <td>{{ data.remaining|floatformat:2 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

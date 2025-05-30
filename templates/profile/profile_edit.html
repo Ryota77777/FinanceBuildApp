@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Редактирование профиля{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-warning text-dark">
+            <h4 class="mb-0">✏️ Редактировать профиль</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label for="first_name" class="form-label">Имя</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name" value="{{ user.first_name }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="last_name" class="form-label">Фамилия</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name" value="{{ user.last_name }}">
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}">
+                </div>
+
+                <button type="submit" class="btn btn-success">💾 Сохранить</button>
+                <a href="{% url 'profile' %}" class="btn btn-secondary ms-2">↩ Назад</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

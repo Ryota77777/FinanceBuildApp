@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Проекты{% endblock %}
+
+{% block content %}
+<h2>Ваши проекты</h2>
+
+{% if projects %}
+    <ul class="list-group">
+        {% for project in projects %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <a href="{% url 'project_detail' project.pk %}">{{ project.name }}</a>
+                <span class="badge bg-primary rounded-pill">{{ project.created_at|date:"d.m.Y" }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>У вас пока нет проектов.</p>
+{% endif %}
+
+<a href="{% url 'project_create' %}" class="btn btn-success mt-3">Создать новый проект</a>
+{% endblock %}

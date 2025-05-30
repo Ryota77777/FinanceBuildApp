@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Тип работы: {{ worktype.name }}{% endblock %}
+
+{% block content %}
+<h2>Тип работы: {{ worktype.name }}</h2>
+
+<p><strong>Описание:</strong> {{ worktype.description }}</p>
+
+<a href="{% url 'workstage_detail' worktype.stage.pk %}" class="btn btn-secondary mt-3">Вернуться к этапу</a>
+{% endblock %}

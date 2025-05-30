@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Добавление закупки{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Новая закупка материалов</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-light border">Сохранить</button>
+                        <a href="{% url 'project_list' %}" class="btn btn-secondary">Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

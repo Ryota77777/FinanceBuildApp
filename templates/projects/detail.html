@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Проект: {{ project.name }}{% endblock %}
+
+{% block content %}
+<h2>Проект: {{ project.name }}</h2>
+
+<p><strong>Описание:</strong> {{ project.description }}</p>
+
+<h3>Этапы работы</h3>
+{% if stages %}
+    <ul class="list-group mb-4">
+        {% for stage in stages %}
+            <li class="list-group-item">
+                <a href="{% url 'workstage_detail' stage.pk %}">{{ stage.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Этапы не добавлены.</p>
+{% endif %}
+
+<h3>Расходы</h3>
+{% if costs %}
+    <ul class="list-group mb-4">
+        {% for cost in costs %}
+            <li class="list-group-item">{{ cost.name }}: {{ cost.amount }} {{ cost.currency }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Расходы не добавлены.</p>
+{% endif %}
+
+<h3>Закупки</h3>
+{% if purchases %}
+    <ul class="list-group mb-4">
+        {% for purchase in purchases %}
+            <li class="list-group-item">
+                {{ purchase.material.name }} — {{ purchase.quantity }} {{ purchase.material.unit }} ({{ purchase.date }})
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Закупки не добавлены.</p>
+{% endif %}
+
+<a href="{% url 'project_list' %}" class="btn btn-secondary mt-3">Вернуться к списку проектов</a>
+{% endblock %}

@@ -1,51 +1,55 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Финансовая система</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">FinanceApp</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
-                    {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">{{ user.username }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}">Выход</a>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Вход</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'register' %}">Регистрация</a>
-                        </li>
-                    {% endif %}
-                </ul>
+{% extends 'base.html' %}
+{% block title %}Главная - FinanceApp{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1 class="mb-4">Добро пожаловать в <span class="text-primary">FinanceApp</span>!</h1>
+
+    {% if user.is_authenticated %}
+        <p class="lead">Рады видеть вас, <strong>{{ user.first_name|default:user.username }}</strong> 👋</p>
+    {% else %}
+        <p class="lead">
+            Это ваш помощник в управлении строительными и финансовыми проектами.
+            <br>
+            <a href="{% url 'login' %}">Войдите</a> или <a href="{% url 'register' %}">зарегистрируйтесь</a>, чтобы начать работу.
+        </p>
+    {% endif %}
+
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">📁 Проекты</h5>
+                    <p class="card-text">Создавайте и управляйте проектами, добавляйте этапы и ресурсы.</p>
+                </div>
             </div>
         </div>
-    </nav>
-
-    <div class="container text-center mt-5">
-        {% if user.is_authenticated %}
-            <h1>Добро пожаловать, {{ user.username }}!</h1>
-            <p>Вы успешно вошли в систему. Управляйте своими финансами с комфортом.</p>
-        {% else %}
-            <h1>Добро пожаловать в Финансовую платформу!</h1>
-            <p>Анализируйте и управляйте своими финансами легко и удобно.</p>
-            <a href="{% url 'login' %}" class="btn btn-primary">Войти</a>
-            <a href="{% url 'register' %}" class="btn btn-success">Зарегистрироваться</a>
-        {% endif %}
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">📊 Планирование</h5>
+                    <p class="card-text">Рассчитывайте объемы работ и затраты на материалы и рабочую силу.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">🛒 Закупки</h5>
+                    <p class="card-text">Следите за необходимыми закупками и остатками на складе.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title">⚙️ Оптимизация</h5>
+                    <p class="card-text">Получайте рекомендации для экономии и повышения эффективности.</p>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</div>
+{% endblock %}
+
 

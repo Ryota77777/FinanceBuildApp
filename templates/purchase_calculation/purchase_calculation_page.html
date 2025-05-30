@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Расчёт закупок{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Расчёт закупок по проектам</h1>
+
+    {% if projects %}
+        <div class="list-group">
+            {% for project in projects %}
+                <div class="list-group-item">
+                    <h5>{{ project.name }}</h5>
+                    <div class="mt-2">
+                        <a href="{% url 'material_needs' project.id %}" class="btn btn-outline-primary btn-sm me-2">
+                            📦 Потребности в материалах
+                        </a>
+                        <a href="{% url 'purchase_summary' project.id %}" class="btn btn-outline-secondary btn-sm">
+                            📊 Сводка по закупкам
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>У вас пока нет проектов для расчёта закупок.</p>
+    {% endif %}
+</div>
+{% endblock %}

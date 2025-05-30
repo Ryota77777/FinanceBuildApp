@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Раздел Оптимизация{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>🔧 Оптимизация проектов</h2>
+    <p>Выберите проект для анализа:</p>
+
+    <ul class="list-group mt-3">
+        {% for project in projects %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ project.name }}
+                <a href="{% url 'optimization_summary' project.id %}" class="btn btn-sm btn-outline-primary">Перейти</a>
+            </li>
+        {% empty %}
+            <li class="list-group-item">У вас пока нет проектов.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

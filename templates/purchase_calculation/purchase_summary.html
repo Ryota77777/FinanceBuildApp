@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Сводка закупок по проекту {{ project.name }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Сводка по закупкам: {{ project.name }}</h2>
+
+    {% if purchases %}
+        <table class="table table-striped mt-3">
+            <thead class="table-light">
+                <tr>
+                    <th>Материал</th>
+                    <th>Количество</th>
+                    <th>Дата закупки</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in purchases %}
+                <tr>
+                    <td>{{ p.material.name }}</td>
+                    <td>{{ p.quantity }}</td>
+                    <td>{{ p.date|date:"d.m.Y" }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Пока нет записей о закупках.</p>
+    {% endif %}
+</div>
+{% endblock %}
