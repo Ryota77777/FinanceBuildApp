@@ -39,10 +39,10 @@
 ## Скриншоты
 
 ### Аунтефикация
-![Скриншот страницы аунтефикации](https://github.com/Ryota77777/FinanceBuildApp/blob/main/templates/auth3.jpg?raw=true)
+![Скриншот страницы аунтефикации](https://github.com/Ryota77777/FinanceBuildApp/blob/main/templates/auth3.png?raw=true)
 
 ### Главная страница
-![Скриншот главной страницы](https://github.com/Ryota77777/FinanceBuildApp/blob/main/templates/main3.jpg?raw=true)
+![Скриншот главной страницы](https://github.com/Ryota77777/FinanceBuildApp/blob/main/templates/main3.png?raw=true)
 
 ### Проекты
 ![Скриншот проектов](https://github.com/Ryota77777/FinanceBuildApp/blob/main/templates/projects.jpg?raw=true)
